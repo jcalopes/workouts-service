@@ -1,0 +1,41 @@
+{
+  "name": "workouts_service",
+  "version": "1.0.0",
+  "description": "Workout service provides an api to manage workout sessions.",
+  "main": "app.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "start": "npm run build && npm run serve",
+    "serve": "node -r dotenv/config build/app.js",
+    "build": "npm run clean && npm run build-ts",
+    "watch": "npx concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run watch-node\"",
+    "watch-node": "nodemon -r dotenv/config build/app.js",
+    "build-ts": "tsc",
+    "watch-ts": "tsc -w",
+    "check": "tsc --noEmit",
+    "clean": "rm -r ./build",
+    "eslint": "eslint . --ext .js,.ts",
+    "upgrade": "npm update --save-dev && npm update --save",
+    "upgrade-latest": "npx npm-check-updates -u && npm install ",
+    "test": "jest --forceExit --detectOpenHandles --coverage --verbose"
+  },
+  "author": "Joao Lopes",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.20.0",
+    "nodemon": "^3.1.4",
+    "winston": "^3.14.2",
+    "winston-daily-rotate-file": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.5.4",
+    "dotenv": "^16.4.5",
+    "eslint": "^9.10.0",
+    "jest": "^29.7.0",
+    "prettier": "^3.3.3",
+    "ts-node": "^10.9.2"
+  }
+}
