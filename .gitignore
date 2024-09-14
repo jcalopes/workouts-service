@@ -4,3 +4,4 @@ node_modules
 .idea
 build
 logs
+docs/swagger_output.json

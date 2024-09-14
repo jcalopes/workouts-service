@@ -2,6 +2,8 @@ import express from "express";
 import {port} from "./config/config";
 import Logger from "./utils/Logger";
 import workoutRouter from "./routes/workouts/WorkoutRouter";
+import swaggerUi from "swagger-ui-express";
+import swaggerOutput from "../docs/swagger_output.json";
 
 const app = express();
 
@@ -10,7 +12,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // Define routing server
-app.use("/workouts", workoutRouter);
+app.use("/api/v1", workoutRouter);
+
+// Swagger Docs
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerOutput));
 
 app
     .listen(port, () => {
