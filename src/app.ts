@@ -1,7 +1,7 @@
 import express from "express";
-import {port} from "./config/config";
+import {port} from "./config/externalVariables.config";
 import Logger from "./utils/Logger";
-import workoutRouter from "./routes/workouts/WorkoutRouter";
+import workoutRouter from "./routes/workout/WorkoutRouter";
 import swaggerUi from "swagger-ui-express";
 import swaggerOutput from "../docs/swagger_output.json";
 
