@@ -1,18 +1,26 @@
 import express, { Router } from 'express';
-import Logger from "../../utils/Logger";
 import { WorkoutController } from '../../controllers/WorkoutController';
 import { inject, injectable } from 'inversify';
 import TYPES from '../../config/di/types';
+import Logger from '../../utils/Logger';
 
-const router = express.Router();
 @injectable()
 export class WorkoutRouter {
-    public constructor(@inject(TYPES.WorkoutController) private workoutController: WorkoutController) {}
+    private readonly router : Router;
 
-    router.get("/workouts", function (req, res) {
-        Logger.info(`WorkoutRouter:: GET: workouts/`);
-        res.send("Workouts page");
-    });
+    public constructor(@inject(TYPES.WorkoutController) private workoutController: WorkoutController) {
+        this.router = express.Router();
+    }
+
+    public getWorkoutRouter(): Router {
+        this.router.get("/workouts",
+          async (req,res) => {
+            Logger.info('WorkoutRouter:: getWorkouts: init');
+            await this.workoutController.getWorkouts(req, res)
+        });
+
+        return this.router;
+    }
 
 }
 

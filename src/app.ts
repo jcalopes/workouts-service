@@ -3,9 +3,11 @@ import 'reflect-metadata'; // Use polyfill globally, as stated by InversifyJS do
 import express from "express";
 import {port} from "./config/externalVariables.config";
 import Logger from "./utils/Logger";
-import workoutRouter from "./routes/workout/WorkoutRouter";
 import swaggerUi from "swagger-ui-express";
 import swaggerOutput from "../docs/swagger_output.json";
+import { iocContainerBuilder } from './config/di/inversify.config';
+import { WorkoutRouter } from './routes/workout/WorkoutRouter';
+import TYPES from './config/di/types';
 
 const app = express();
 
@@ -13,8 +15,12 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+// Get Inversify Js Ioc container
+const iocContainer= iocContainerBuilder();
+
 // Define routing server
-app.use("/api/v1", workoutRouter);
+const workoutRouter = iocContainer.get<WorkoutRouter>(TYPES.WorkoutRouter);
+app.use("/api/v1", workoutRouter.getWorkoutRouter());
 
 // Swagger Docs
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerOutput));

@@ -23,10 +23,12 @@ export class WorkoutDaoImpl extends WorkoutDao{
     }
 
     async getWorkouts(): Promise<Workout[]> {
-      if (!this.workoutsCollection) {
-          throw new Error("MongoDbService:: getWorkouts:: Error connecting to database");
-      }
-      return (await this.workoutsCollection.find({}).toArray()) as Workout[];
+      // if (!this.workoutsCollection) {
+      //     throw new Error("MongoDbService:: getWorkouts:: Error connecting to database");
+      // }
+      Logger.info(`WorkoutDaoImpl:: getWorkouts: init`);
+      return Promise.resolve([]);
+      // return (await this.workoutsCollection.find({}).toArray()) as Workout[];
     }
 
 
