@@ -1,3 +1,5 @@
+import 'reflect-metadata'; // Use polyfill globally, as stated by InversifyJS docs
+
 import express from "express";
 import {port} from "./config/externalVariables.config";
 import Logger from "./utils/Logger";

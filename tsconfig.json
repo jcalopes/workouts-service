@@ -12,6 +12,8 @@
         "noImplicitAny": true,
         "strict": true,
         "strictFunctionTypes": false,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
         "noImplicitThis": false,
         // Search under node_modules for non-relative imports.
         "moduleResolution": "node",

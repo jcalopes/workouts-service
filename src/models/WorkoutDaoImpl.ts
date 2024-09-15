@@ -3,7 +3,9 @@ import Logger from '../utils/Logger';
 import { WorkoutDao } from './WorkoutDao';
 import { dbConnString, dbName, workoutsCollection } from '../config/externalVariables.config';
 import { Workout } from './Workout';
+import { injectable } from 'inversify';
 
+@injectable()
 export class WorkoutDaoImpl extends WorkoutDao{
     private workoutsCollection: mongoDB.Collection | undefined;
 
