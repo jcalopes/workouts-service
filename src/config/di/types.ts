@@ -5,4 +5,4 @@ const TYPES = {
   WorkoutRouter: Symbol.for('WorkoutRouter'),
 };
 
-export default TYPES ;
+export default TYPES;

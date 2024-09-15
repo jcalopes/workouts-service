@@ -1,7 +1,9 @@
 Workouts API
 
 # DAO
+
 # Swagger
+
 # Dependency Injection with InversifyJS IOC:
 
 In the end, we have an example that complies with SOLID principles:

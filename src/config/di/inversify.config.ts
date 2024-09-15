@@ -11,13 +11,22 @@ export const iocContainerBuilder = () => {
 
   // Services
   iocContainer.bind<WorkoutDao>(TYPES.WorkoutDaoImpl).to(WorkoutDaoImpl);
-  iocContainer.bind<WorkoutService>(TYPES.WorkoutService).to(WorkoutService).inSingletonScope();
+  iocContainer
+    .bind<WorkoutService>(TYPES.WorkoutService)
+    .to(WorkoutService)
+    .inSingletonScope();
 
   // Controllers
-  iocContainer.bind<WorkoutController>(TYPES.WorkoutController).to(WorkoutController).inSingletonScope();
+  iocContainer
+    .bind<WorkoutController>(TYPES.WorkoutController)
+    .to(WorkoutController)
+    .inSingletonScope();
 
   // Routers
-  iocContainer.bind<WorkoutRouter>(TYPES.WorkoutRouter).to(WorkoutRouter).inSingletonScope();
+  iocContainer
+    .bind<WorkoutRouter>(TYPES.WorkoutRouter)
+    .to(WorkoutRouter)
+    .inSingletonScope();
 
   return iocContainer;
-}
+};

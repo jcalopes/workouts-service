@@ -6,21 +6,21 @@ import Logger from '../../utils/Logger';
 
 @injectable()
 export class WorkoutRouter {
-    private readonly router : Router;
+  private readonly router: Router;
 
-    public constructor(@inject(TYPES.WorkoutController) private workoutController: WorkoutController) {
-        this.router = express.Router();
-    }
+  public constructor(
+    @inject(TYPES.WorkoutController)
+    private workoutController: WorkoutController,
+  ) {
+    this.router = express.Router();
+  }
 
-    public getWorkoutRouter(): Router {
-        this.router.get("/workouts",
-          async (req,res) => {
-            Logger.info('WorkoutRouter:: getWorkouts: init');
-            await this.workoutController.getWorkouts(req, res)
-        });
+  public getWorkoutRouter(): Router {
+    this.router.get('/workouts', async (req, res) => {
+      Logger.info('WorkoutRouter:: getWorkouts: init');
+      await this.workoutController.getWorkouts(req, res);
+    });
 
-        return this.router;
-    }
-
+    return this.router;
+  }
 }
-

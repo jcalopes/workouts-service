@@ -6,9 +6,16 @@ import { Workout } from '../../models/Workout';
 
 @injectable()
 export class WorkoutService {
-    public constructor(@inject(TYPES.WorkoutDaoImpl) private workoutDao: WorkoutDao) {}
-    async getWorkouts():Promise<Workout[]> {
-        Logger.info(`WorkoutService:: getWorkouts: init`);
-        return await this.workoutDao.getWorkouts();
+  public constructor(
+    @inject(TYPES.WorkoutDaoImpl) private workoutDao: WorkoutDao,
+  ) {}
+  async getWorkouts(): Promise<Workout[]> {
+    Logger.info(`WorkoutService:: getWorkouts: init`);
+    try {
+      return await this.workoutDao.getWorkouts();
+    } catch (error) {
+      Logger.error(`WorkoutService:: getWorkouts: Error: ${error}`);
+      throw error;
     }
+  }
 }
