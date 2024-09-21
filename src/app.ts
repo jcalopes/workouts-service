@@ -8,6 +8,7 @@ import swaggerOutput from '../docs/swagger_output.json';
 import { iocContainerBuilder } from './config/di/inversify.config';
 import { WorkoutRouter } from './routes/workout/WorkoutRouter';
 import TYPES from './config/di/types';
+import { connectToDatabase } from './config/DatabaseConfig';
 
 const app = express();
 
@@ -15,8 +16,10 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+const mongoDb = await connectToDatabase();
+
 // Get Inversify Js Ioc container
-const iocContainer = iocContainerBuilder();
+const iocContainer = iocContainerBuilder({database: mongoDb});
 
 // Define routing server
 const workoutRouter = iocContainer.get<WorkoutRouter>(TYPES.WorkoutRouter);

@@ -1,12 +1,13 @@
-import TYPES from './types';
+import TYPES, { ExternalDependencies } from './types';
 import { Container } from 'inversify';
 import { WorkoutDao } from '../../models/WorkoutDao';
 import { WorkoutDaoImpl } from '../../models/WorkoutDaoImpl';
 import { WorkoutService } from '../../services/workout/WorkoutService';
 import { WorkoutController } from '../../controllers/WorkoutController';
 import { WorkoutRouter } from '../../routes/workout/WorkoutRouter';
+import * as mongoDB from 'mongodb';
 
-export const iocContainerBuilder = () => {
+export const iocContainerBuilder = ({database}: ExternalDependencies) => {
   const iocContainer = new Container();
 
   // Services
@@ -28,5 +29,9 @@ export const iocContainerBuilder = () => {
     .to(WorkoutRouter)
     .inSingletonScope();
 
+  // Database
+  iocContainer.bind<mongoDB.Db>(TYPES.DatabaseManager).toConstantValue(database);
+
   return iocContainer;
 };
+
