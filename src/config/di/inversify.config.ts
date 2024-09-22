@@ -6,8 +6,9 @@ import { WorkoutService } from '../../services/workout/WorkoutService';
 import { WorkoutController } from '../../controllers/WorkoutController';
 import { WorkoutRouter } from '../../routes/workout/WorkoutRouter';
 import * as mongoDB from 'mongodb';
+import { Logger } from 'winston';
 
-export const iocContainerBuilder = ({database}: ExternalDependencies) => {
+export const iocContainerBuilder = ({database, logger}: ExternalDependencies) => {
   const iocContainer = new Container();
 
   // Services
@@ -29,8 +30,9 @@ export const iocContainerBuilder = ({database}: ExternalDependencies) => {
     .to(WorkoutRouter)
     .inSingletonScope();
 
-  // Database
+  // External Dependencies
   iocContainer.bind<mongoDB.Db>(TYPES.DatabaseManager).toConstantValue(database);
+  iocContainer.bind<Logger>(TYPES.DefaultLogger).toConstantValue(logger);
 
   return iocContainer;
 };

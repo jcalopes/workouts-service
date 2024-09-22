@@ -22,7 +22,7 @@ export class WorkoutRouter {
     });
 
     this.router.post('/workouts', async (req, res) => {
-      Logger.info('WorkoutRouter:: getWorkouts: init');
+      Logger.info('WorkoutRouter:: postWorkout: init');
       await this.workoutController.createWorkout(req, res);
     });
 

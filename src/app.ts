@@ -17,7 +17,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 connectToDatabase().then((mongoDb) => {
-  const externalDependencies = { database: mongoDb } as ExternalDependencies;
+  const externalDependencies = {
+    database: mongoDb,
+    logger: Logger } as ExternalDependencies;
 
   // Get Inversify Js container
   const iocContainer = iocContainerBuilder(externalDependencies);
