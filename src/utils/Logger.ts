@@ -17,7 +17,6 @@ const logLevel = environment === 'development' ? 'debug' : 'warn';
 
 const dailyRotateFile = new DailyRotateFile({
   level: logLevel,
-  // @ts-expect-error
   filename: dir + '/%DATE%.log',
   datePattern: 'YYYY-MM-DD',
   zippedArchive: true,

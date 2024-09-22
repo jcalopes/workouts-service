@@ -1,4 +1,4 @@
-import mongoDB from 'mongodb';
+import { Db } from 'mongodb';
 
 const TYPES = {
   WorkoutDaoImpl: Symbol.for('WorkoutDao'),
@@ -11,5 +11,5 @@ const TYPES = {
 export default TYPES;
 
 export interface ExternalDependencies {
-  database: typeof mongoDB.Db;
+  database: Db;
 }
