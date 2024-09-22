@@ -17,12 +17,18 @@ export class WorkoutDaoImpl extends WorkoutDao {
   }
 
   async getWorkouts(): Promise<Workout[]> {
-    if (!this.workoutsCollection) {
-      throw new Error(
-        'MongoDbService:: getWorkouts:: Error connecting to database',
-      );
-    }
     Logger.info(`WorkoutDaoImpl:: getWorkouts: init`);
     return (await this.workoutsCollection.find({}).toArray()) as Workout[];
   }
+
+  async createWorkout(workout:Workout): Promise<string> {
+    Logger.info(`WorkoutDaoImpl:: createWorkout: init`);
+    const insertedDoc = (await this.workoutsCollection.insertOne(workout));
+    Logger.info(`WorkoutDaoImpl:: createWorkout: insertedDoc: ${JSON.stringify(insertedDoc)}`);
+    if(insertedDoc.acknowledged){
+      return insertedDoc.insertedId.toString();
+    }
+    throw new Error("Failed to insert a new workout session.");
+  }
+
 }

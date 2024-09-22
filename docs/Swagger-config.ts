@@ -10,7 +10,7 @@ const swaggerDefinition = {
 };
 
 const outputFile = './docs/swagger_output.json';
-const endpointsFiles = ['./src/routes/**/**.ts'];
+const endpointsFiles = ['./src/routes/workout/WorkoutRouter.ts'];
 
 swaggerAutogen({ openapi: '3.0.0' })(
   outputFile,
