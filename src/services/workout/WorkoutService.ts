@@ -29,4 +29,14 @@ export class WorkoutService {
       throw error;
     }
   }
+
+  async getWorkout(id: string): Promise<Workout> {
+    this.logger.info(`WorkoutService:: getWorkouts: init`);
+    try {
+      return await this.workoutDao.getWorkout(id);
+    } catch (error) {
+      this.logger.error(`WorkoutService:: getWorkouts: Error: ${error}`);
+      throw error;
+    }
+  }
 }

@@ -4,7 +4,7 @@ import { Workout } from './Workout';
 import { inject, injectable } from 'inversify';
 import TYPES from '../config/di/types';
 import { workoutsCollection } from '../config/externalVariables.config';
-import { Db } from 'mongodb';
+import { Db, ObjectId } from 'mongodb';
 import { Logger } from 'winston';
 
 @injectable()
@@ -30,6 +30,12 @@ export class WorkoutDaoImpl extends WorkoutDao {
       return insertedDoc.insertedId.toString();
     }
     throw new Error("Failed to insert a new workout session.");
+  }
+
+  async getWorkout(id: string): Promise<Workout> {
+    this.logger.info(`WorkoutDaoImpl:: getWorkout: init`);
+    const query = { _id: new ObjectId(id) };
+    return (await this.workoutsCollection.findOne(query)) as Workout;
   }
 
 }

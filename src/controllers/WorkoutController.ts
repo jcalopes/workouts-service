@@ -25,6 +25,7 @@ export class WorkoutController {
   async createWorkout(req: Request, res: Response): Promise<Response> {
     this.logger.info(`WorkoutController:: createWorkout: init`);
     try{
+      // TODO: Add more complete validation
       if(!req.body){ return res.status(400).send("Request body is missing."); }
       const insertedId = await this.workoutService.createWorkout(req.body as Workout);
       return res.status(201).send(`Workout Session id: ${insertedId} created successfully.`);
@@ -32,4 +33,19 @@ export class WorkoutController {
       return res.status(500).send("Internal Server Error");
     }
   }
+
+  async getWorkout(req: Request, res: Response): Promise<Response> {
+    this.logger.info(`WorkoutController:: getWorkout: init`);
+    try{
+      const id = req?.params?.id;
+      if(!id){
+        return res.status(400).send("Workout Session id is missing.");
+      }
+      const workout = await this.workoutService.getWorkout(id);
+      return res.status(200).send(workout);
+    } catch (error) {
+      return res.status(500).send("Internal Server Error");
+    }
+  }
+
 }

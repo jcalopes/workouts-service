@@ -26,6 +26,11 @@ export class WorkoutRouter {
       await this.workoutController.createWorkout(req, res);
     });
 
+    this.router.get('/workouts/:id', async (req, res) => {
+      Logger.info('WorkoutRouter:: getWorkoutId: init');
+      await this.workoutController.getWorkout(req, res);
+    });
+
     return this.router;
   }
 }
