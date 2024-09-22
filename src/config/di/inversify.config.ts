@@ -12,7 +12,7 @@ export const iocContainerBuilder = ({database, logger}: ExternalDependencies) =>
   const iocContainer = new Container();
 
   // Services
-  iocContainer.bind<WorkoutDao>(TYPES.WorkoutDaoImpl).to(WorkoutDaoImpl);
+  iocContainer.bind<WorkoutDao>(TYPES.WorkoutDaoImpl).to(WorkoutDaoImpl).inSingletonScope();
   iocContainer
     .bind<WorkoutService>(TYPES.WorkoutService)
     .to(WorkoutService)
