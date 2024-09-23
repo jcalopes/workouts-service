@@ -48,4 +48,21 @@ export class WorkoutController {
     }
   }
 
+  async deleteWorkout(req: Request, res: Response): Promise<Response> {
+    this.logger.info(`WorkoutController:: deleteWorkout: init`);
+    try{
+      const id = req?.params?.id;
+      if(!id){
+        return res.status(400).send("Workout Session id is missing.");
+      }
+      const workoutDeleted = await this.workoutService.deleteWorkout(id);
+      if(!workoutDeleted){
+        return res.status(404).send("Workout Session not found.");
+      }
+      return res.status(200).send(`Workout Session id: ${id} deleted successfully.`);
+    } catch (error) {
+      return res.status(500).send("Internal Server Error");
+    }
+  }
+
 }

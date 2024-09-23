@@ -38,4 +38,10 @@ export class WorkoutDaoImpl extends WorkoutDao {
     return (await this.workoutsCollection.findOne(query)) as Workout;
   }
 
+  async deleteWorkout(id: string): Promise<boolean> {
+    this.logger.info(`WorkoutDaoImpl:: deleteWorkout: init`);
+    const query = { _id: new ObjectId(id) };
+    return !!(await this.workoutsCollection.deleteOne(query)).deletedCount;
+  }
+
 }

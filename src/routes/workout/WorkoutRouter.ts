@@ -31,6 +31,11 @@ export class WorkoutRouter {
       await this.workoutController.getWorkout(req, res);
     });
 
+    this.router.delete('/workouts/:id', async (req, res) => {
+      Logger.info('WorkoutRouter:: deleteWorkoutId: init');
+      await this.workoutController.deleteWorkout(req, res);
+    });
+
     return this.router;
   }
 }

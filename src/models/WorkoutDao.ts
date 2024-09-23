@@ -5,5 +5,6 @@ import { injectable } from 'inversify';
 export abstract class WorkoutDao {
   abstract getWorkouts(): Promise<Workout[]>;
   abstract getWorkout(id: string): Promise<Workout>;
+  abstract deleteWorkout(id: string): Promise<boolean>;
   abstract createWorkout(workout: Workout): Promise<string>;
 }

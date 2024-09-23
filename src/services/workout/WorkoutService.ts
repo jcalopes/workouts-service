@@ -39,4 +39,14 @@ export class WorkoutService {
       throw error;
     }
   }
+
+  async deleteWorkout(id: string): Promise<boolean> {
+    this.logger.info(`WorkoutService:: deleteWorkouts: init`);
+    try {
+      return await this.workoutDao.deleteWorkout(id);
+    } catch (error) {
+      this.logger.error(`WorkoutService:: deleteWorkouts: Error: ${error}`);
+      throw error;
+    }
+  }
 }
