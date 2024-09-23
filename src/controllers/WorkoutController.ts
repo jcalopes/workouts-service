@@ -59,7 +59,7 @@ export class WorkoutController {
       if(!workoutDeleted){
         return res.status(404).send("Workout Session not found.");
       }
-      return res.status(200).send(`Workout Session id: ${id} deleted successfully.`);
+      return res.status(204).send();
     } catch (error) {
       return res.status(500).send("Internal Server Error");
     }
