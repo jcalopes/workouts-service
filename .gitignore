@@ -5,3 +5,4 @@ node_modules
 build
 logs
 docs/swagger_output.json
+coverage

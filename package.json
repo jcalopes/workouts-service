@@ -21,7 +21,7 @@
     "lint:fix": "npx eslint . --fix",
     "upgrade": "npm update --save-dev && npm update --save",
     "upgrade-latest": "npx npm-check-updates -u && npm install ",
-    "test": "jest --forceExit --detectOpenHandles --coverage --verbose"
+    "test": "jest --config=jest.json --maxWorkers=50% --detectOpenHandles --coverage --verbose"
   },
   "author": "Joao Lopes",
   "license": "ISC",
@@ -40,13 +40,17 @@
   "devDependencies": {
     "@eslint/js": "^9.10.0",
     "@types/eslint__js": "^8.42.3",
+    "@types/jest": "^29.5.13",
     "@types/node": "^22.5.4",
     "dotenv": "^16.4.5",
     "eslint": "^9.10.0",
     "jest": "^29.7.0",
+    "jest-extended": "^4.0.2",
+    "jest-mock-extended": "^4.0.0-beta1",
     "nodemon": "^3.1.4",
     "prettier": "^3.3.3",
     "rimraf": "^6.0.1",
+    "ts-jest": "^29.2.5",
     "ts-node": "^10.9.2",
     "typescript": "^5.6.2",
     "typescript-eslint": "^8.5.0"
