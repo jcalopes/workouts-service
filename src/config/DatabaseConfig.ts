@@ -12,4 +12,4 @@ export const connectToDatabase = async (): Promise<mongoDB.Db> => {
     `Database Config:: connectToDatabase:: Successfully connected to database: ${db.databaseName}`,
   );
   return db;
-}
+};

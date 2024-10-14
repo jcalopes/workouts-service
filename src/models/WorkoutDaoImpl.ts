@@ -11,10 +11,13 @@ import { Logger } from 'winston';
 export class WorkoutDaoImpl extends WorkoutDao {
   private readonly workoutsCollection: mongoDB.Collection;
 
-  public constructor(@inject(TYPES.DatabaseManager) private databaseManager: Db,
-                     @inject(TYPES.DefaultLogger) private logger: Logger) {
+  public constructor(
+    @inject(TYPES.DatabaseManager) private databaseManager: Db,
+    @inject(TYPES.DefaultLogger) private logger: Logger,
+  ) {
     super();
-    this.workoutsCollection = this.databaseManager.collection(workoutsCollection);
+    this.workoutsCollection =
+      this.databaseManager.collection(workoutsCollection);
   }
 
   async getWorkouts(): Promise<Workout[]> {
@@ -22,14 +25,16 @@ export class WorkoutDaoImpl extends WorkoutDao {
     return (await this.workoutsCollection.find({}).toArray()) as Workout[];
   }
 
-  async createWorkout(workout:Workout): Promise<string> {
+  async createWorkout(workout: Workout): Promise<string> {
     this.logger.info(`WorkoutDaoImpl:: createWorkout: init`);
-    const insertedDoc = (await this.workoutsCollection.insertOne(workout));
-    this.logger.debug(`WorkoutDaoImpl:: createWorkout: insertedDoc: ${JSON.stringify(insertedDoc)}`);
-    if(insertedDoc.acknowledged){
+    const insertedDoc = await this.workoutsCollection.insertOne(workout);
+    this.logger.debug(
+      `WorkoutDaoImpl:: createWorkout: insertedDoc: ${JSON.stringify(insertedDoc)}`,
+    );
+    if (insertedDoc.acknowledged) {
       return insertedDoc.insertedId.toString();
     }
-    throw new Error("Failed to insert a new workout session.");
+    throw new Error('Failed to insert a new workout session.');
   }
 
   async getWorkout(id: string): Promise<Workout> {
@@ -43,5 +48,4 @@ export class WorkoutDaoImpl extends WorkoutDao {
     const query = { _id: new ObjectId(id) };
     return !!(await this.workoutsCollection.deleteOne(query)).deletedCount;
   }
-
 }

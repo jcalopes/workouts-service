@@ -7,5 +7,5 @@ export const createLoggerMock = () => {
     mocks: {
       loggerMock,
     },
-  }
+  };
 };

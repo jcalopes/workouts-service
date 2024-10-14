@@ -18,7 +18,7 @@
     "check": "tsc --noEmit",
     "clean": "rimraf ./build",
     "lint": "npx eslint .",
-    "lint:fix": "npx eslint . --fix",
+    "lint:fix": "npx eslint . --fix && npx prettier --write .",
     "upgrade": "npm update --save-dev && npm update --save",
     "upgrade-latest": "npx npm-check-updates -u && npm install ",
     "test": "jest --config=jest.json --maxWorkers=50% --detectOpenHandles --coverage --verbose"

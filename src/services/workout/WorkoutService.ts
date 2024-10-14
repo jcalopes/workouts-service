@@ -8,7 +8,7 @@ import { Logger } from 'winston';
 export class WorkoutService {
   public constructor(
     @inject(TYPES.WorkoutDaoImpl) private workoutDao: WorkoutDao,
-    @inject(TYPES.DefaultLogger) private logger: Logger
+    @inject(TYPES.DefaultLogger) private logger: Logger,
   ) {}
   async getWorkouts(): Promise<Workout[]> {
     this.logger.info(`WorkoutService:: getWorkouts: init`);

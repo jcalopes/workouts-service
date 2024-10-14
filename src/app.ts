@@ -16,27 +16,28 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-connectToDatabase().then((mongoDb) => {
-  const externalDependencies = {
-    database: mongoDb,
-    logger: Logger } as ExternalDependencies;
+connectToDatabase().then(
+  (mongoDb) => {
+    const externalDependencies = {
+      database: mongoDb,
+      logger: Logger,
+    } as ExternalDependencies;
 
-  // Get Inversify Js container
-  const iocContainer = iocContainerBuilder(externalDependencies);
+    // Get Inversify Js container
+    const iocContainer = iocContainerBuilder(externalDependencies);
 
-  // Define routing server
-  const workoutRouter = iocContainer.get<WorkoutRouter>(TYPES.WorkoutRouter);
-  app.use('/api/v1', workoutRouter.getWorkoutRouter());
+    // Define routing server
+    const workoutRouter = iocContainer.get<WorkoutRouter>(TYPES.WorkoutRouter);
+    app.use('/api/v1', workoutRouter.getWorkoutRouter());
 
-  // Swagger Docs
-  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerOutput));
+    // Swagger Docs
+    app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerOutput));
 
-  app
-    .listen(port, () => {
-      Logger.info(`Server running on port : ${port}`);
-    })
-    .on('error', (e) => Logger.error(e));
-
-}, (e) => Logger.error(`${e} DB Info: ${dbConnString} : ${dbName})`));
-
-
+    app
+      .listen(port, () => {
+        Logger.info(`Server running on port : ${port}`);
+      })
+      .on('error', (e) => Logger.error(e));
+  },
+  (e) => Logger.error(`${e} DB Info: ${dbConnString} : ${dbName})`),
+);
