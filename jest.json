@@ -6,7 +6,8 @@
   "coveragePathIgnorePatterns": [
     "<rootDir>/tests/",
     "<rootDir>/src/typescript/config.ts",
-    "<rootDir>/src/app.ts"
+    "<rootDir>/src/app.ts",
+    "<rootDir>/src/config/"
   ],
   "moduleNameMapper": {
     "build.json": "<rootDir>/src/typescript/__mocks__/build.json",

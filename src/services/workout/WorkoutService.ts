@@ -15,7 +15,7 @@ export class WorkoutService {
     try {
       return await this.workoutDao.getWorkouts();
     } catch (error) {
-      this.logger.error(`WorkoutService:: getWorkouts: Error: ${error}`);
+      this.logger.error(`WorkoutService:: getWorkouts: ${error}`);
       throw error;
     }
   }
@@ -25,7 +25,7 @@ export class WorkoutService {
     try {
       return await this.workoutDao.createWorkout(workout);
     } catch (error) {
-      this.logger.error(`WorkoutService:: getWorkouts: Error: ${error}`);
+      this.logger.error(`WorkoutService:: createWorkout: ${error}`);
       throw error;
     }
   }
@@ -35,7 +35,7 @@ export class WorkoutService {
     try {
       return await this.workoutDao.getWorkout(id);
     } catch (error) {
-      this.logger.error(`WorkoutService:: getWorkouts: Error: ${error}`);
+      this.logger.error(`WorkoutService:: getWorkoutId: ${error}`);
       throw error;
     }
   }
@@ -45,7 +45,7 @@ export class WorkoutService {
     try {
       return await this.workoutDao.deleteWorkout(id);
     } catch (error) {
-      this.logger.error(`WorkoutService:: deleteWorkouts: Error: ${error}`);
+      this.logger.error(`WorkoutService:: deleteWorkouts: ${error}`);
       throw error;
     }
   }
