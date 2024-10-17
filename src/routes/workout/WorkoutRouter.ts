@@ -45,7 +45,6 @@ export class WorkoutRouter {
   }
 
   public getWorkoutRouter(): Router {
-
     /**
      * @swagger
      * /api/v1/workouts:

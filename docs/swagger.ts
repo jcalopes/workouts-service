@@ -1,5 +1,4 @@
 import swaggerJSDoc from 'swagger-jsdoc';
-import { ObjectId } from 'mongodb';
 
 const options = {
   definition: {
@@ -9,8 +8,8 @@ const options = {
       version: '1.0.0',
       description: 'API documentation for Workout Service',
       contact: {
-        name: "João Lopes",
-        email: "lopes.joao.ca@gmail.com"
+        name: 'João Lopes',
+        email: 'lopes.joao.ca@gmail.com',
       },
     },
   },
