@@ -28,6 +28,10 @@ import Logger from '../../utils/Logger';
  *           type: string
  *           format: date
  *           description: The date the workout was added
+ *       example:
+ *         name: Sunday Morning Workout
+ *         category: Leg Day
+ *         date: 2024-12-10T04:05:06.157Z
  */
 @injectable()
 export class WorkoutRouter {
@@ -62,6 +66,12 @@ export class WorkoutRouter {
      * /api/v1/workouts:
      *   post:
      *     summary: Create a new workout.
+     *     requestBody:
+     *      required: true
+     *      content:
+     *        application/json:
+     *          schema:
+     *            $ref: '#/components/schemas/Workout'
      *     description: Store a new workout on the workouts database..
      *     responses:
      *       201:
@@ -74,9 +84,16 @@ export class WorkoutRouter {
 
     /**
      * @swagger
-     * /api/v1/workouts/:id:
+     * /api/v1/workouts/{id}:
      *   get:
      *     summary: Get a workout id.
+     *     parameters:
+     *       - in: path
+     *         name: id
+     *         schema:
+     *           type: string
+     *         required: true
+     *         description: The workout id
      *     description: Retrieve a specific workout given the provided id.
      *     responses:
      *       200:
@@ -89,9 +106,16 @@ export class WorkoutRouter {
 
     /**
      * @swagger
-     * /api/v1/workouts/:id:
+     * /api/v1/workouts/{id}:
      *   delete:
      *     summary: Delete a workout.
+     *     parameters:
+     *       - in: path
+     *         name: id
+     *         schema:
+     *           type: string
+     *         required: true
+     *         description: The workout id
      *     description: Delete a specific workout given the provided id.
      *     responses:
      *       204:
