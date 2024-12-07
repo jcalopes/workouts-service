@@ -1,7 +1,7 @@
-import { WorkoutDao } from '../../models/WorkoutDao';
+import { WorkoutDao } from '../../../domain/contracts/WorkoutDao';
 import { inject, injectable } from 'inversify';
-import TYPES from '../../config/di/types';
-import { Workout } from '../../models/Workout';
+import TYPES from '../../di/types';
+import { Workout } from '../../../domain/models/Workout';
 import { Logger } from 'winston';
 
 @injectable()

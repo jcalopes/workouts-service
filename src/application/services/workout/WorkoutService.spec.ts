@@ -1,7 +1,7 @@
-import { createWorkoutDaoImplementationMock } from '../../../tests/mocks/internal/WorkoutDaoImplementationMock';
+import { createWorkoutDaoImplementationMock } from '../../../../tests/mocks/internal/WorkoutDaoImplementationMock';
 import { WorkoutService } from './WorkoutService';
-import { createLoggerMock } from '../../../tests/mocks/internal/LoggerMock';
-import { Workout } from '../../models/Workout';
+import { createLoggerMock } from '../../../../tests/mocks/internal/LoggerMock';
+import { Workout } from '../../../domain/models/Workout';
 import { ObjectId } from 'mongodb';
 
 describe('WorkoutService', () => {

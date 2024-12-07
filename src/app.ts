@@ -3,10 +3,10 @@ import 'reflect-metadata'; // Use polyfill globally, as stated by InversifyJS do
 import express from 'express';
 import { dbConnString, dbName, port } from './config/externalVariables.config';
 import Logger from './utils/Logger';
-import { iocContainerBuilder } from './config/di/inversify.config';
-import { WorkoutRouter } from './routes/workout/WorkoutRouter';
-import TYPES, { ExternalDependencies } from './config/di/types';
-import { connectToDatabase } from './config/DatabaseConfig';
+import { iocContainerBuilder } from './application/di/inversify.config';
+import { WorkoutRouter } from './api/routes/workout/WorkoutRouter';
+import TYPES, { ExternalDependencies } from './application/di/types';
+import { connectToDatabase } from './infrastructure/database/DatabaseConfig';
 import { swaggerSpec } from '../docs/swagger';
 import swaggerUi from 'swagger-ui-express';
 const app = express();

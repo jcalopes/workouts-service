@@ -1,9 +1,9 @@
 import * as mongoDB from 'mongodb';
-import { WorkoutDao } from './WorkoutDao';
+import { WorkoutDao } from '../contracts/WorkoutDao';
 import { Workout } from './Workout';
 import { inject, injectable } from 'inversify';
-import TYPES from '../config/di/types';
-import { workoutsCollection } from '../config/externalVariables.config';
+import TYPES from '../../application/di/types';
+import { workoutsCollection } from '../../config/externalVariables.config';
 import { Db, ObjectId } from 'mongodb';
 import { Logger } from 'winston';
 

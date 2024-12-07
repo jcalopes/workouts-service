@@ -1,4 +1,4 @@
-import { Workout } from './Workout';
+import { Workout } from '../models/Workout';
 import { injectable } from 'inversify';
 
 @injectable()

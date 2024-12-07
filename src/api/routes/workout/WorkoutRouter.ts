@@ -1,8 +1,8 @@
 import express, { Router } from 'express';
 import { WorkoutController } from '../../controllers/WorkoutController';
 import { inject, injectable } from 'inversify';
-import TYPES from '../../config/di/types';
-import Logger from '../../utils/Logger';
+import TYPES from '../../../application/di/types';
+import Logger from '../../../utils/Logger';
 
 /**
  * @swagger

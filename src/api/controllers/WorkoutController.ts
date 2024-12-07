@@ -1,8 +1,8 @@
-import { WorkoutService } from '../services/workout/WorkoutService';
+import { WorkoutService } from '../../application/services/workout/WorkoutService';
 import { Request, Response } from 'express';
 import { inject, injectable } from 'inversify';
-import TYPES from '../config/di/types';
-import { Workout } from '../models/Workout';
+import TYPES from '../../application/di/types';
+import { Workout } from '../../domain/models/Workout';
 import { Logger } from 'winston';
 
 @injectable()

@@ -1,10 +1,10 @@
 import TYPES, { ExternalDependencies } from './types';
 import { Container } from 'inversify';
-import { WorkoutDao } from '../../models/WorkoutDao';
-import { WorkoutDaoImpl } from '../../models/WorkoutDaoImpl';
-import { WorkoutService } from '../../services/workout/WorkoutService';
-import { WorkoutController } from '../../controllers/WorkoutController';
-import { WorkoutRouter } from '../../routes/workout/WorkoutRouter';
+import { WorkoutDao } from '../../domain/contracts/WorkoutDao';
+import { WorkoutDaoImpl } from '../../domain/models/WorkoutDaoImpl';
+import { WorkoutService } from '../services/workout/WorkoutService';
+import { WorkoutController } from '../../api/controllers/WorkoutController';
+import { WorkoutRouter } from '../../api/routes/workout/WorkoutRouter';
 import * as mongoDB from 'mongodb';
 import { Logger } from 'winston';
 

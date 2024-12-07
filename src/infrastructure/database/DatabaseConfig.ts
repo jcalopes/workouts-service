@@ -1,6 +1,6 @@
 import * as mongoDB from 'mongodb';
-import Logger from '../utils/Logger';
-import { dbConnString, dbName } from './externalVariables.config';
+import Logger from '../../utils/Logger';
+import { dbConnString, dbName } from '../../config/externalVariables.config';
 import { Db } from 'mongodb';
 
 export const connectToDatabase = async (): Promise<mongoDB.Db> => {
