@@ -1,5 +1,5 @@
 import * as mongoDB from 'mongodb';
-import Logger from '../../utils/Logger';
+import Logger from '../logging/Logger';
 import { dbConnString, dbName } from '../../config/externalVariables.config';
 import { Db } from 'mongodb';
 

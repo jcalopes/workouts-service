@@ -2,7 +2,7 @@ import 'reflect-metadata'; // Use polyfill globally, as stated by InversifyJS do
 
 import express from 'express';
 import { dbConnString, dbName, port } from './config/externalVariables.config';
-import Logger from './utils/Logger';
+import Logger from './infrastructure/logging/Logger';
 import { iocContainerBuilder } from './application/di/inversify.config';
 import { WorkoutRouter } from './api/routes/workout/WorkoutRouter';
 import TYPES, { ExternalDependencies } from './application/di/types';
