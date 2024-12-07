@@ -18,8 +18,8 @@ Also, makes the application easier to test and maintain overall.
 ### SOLID
 SOLID is an acronym standing for the following key aspects that all software should aim for.
 
-Single Responsibility Principle (SRP): We have defined classes that take care of one thing only.
-Open/Closed Principle (OCP): Since we are relying on abstractions, we don’t have to make changes on our calling code, if we wish to change an implementation.
-Liskov Substitution Principle (LSP): We can replace any of our objects by another one as long as they implement the same interface.
-Interface Segregation Principle: We created a WorkoutService that implements WorkoutServiceInterface, and we’re using that one to bind our implementation.
-Dependency Inversion Principle: We’re relying on interfaces everywhere. The only place where we’re making use of our classes is on the inversify.config.ts file, where we are defining our bindings.
+- Single Responsibility Principle (SRP): We have defined classes that take care of one thing only.
+- Open/Closed Principle (OCP): Since we are relying on abstractions, we don’t have to make changes on our calling code, if we wish to change an implementation.
+- Liskov Substitution Principle (LSP): We can replace any of our objects by another one as long as they implement the same interface.
+- Interface Segregation Principle: We created a WorkoutService that implements WorkoutServiceInterface, and we’re using that one to bind our implementation.
+- Dependency Inversion Principle: We’re relying on interfaces everywhere. The only place where we’re making use of our classes is on the inversify.config.ts file, where we are defining our bindings.
