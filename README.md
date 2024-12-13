@@ -2,6 +2,26 @@
 
 This service is responsible for managing workouts data.
 
+## Tech Stack
+This API was built using express.js web framework for node.js. THe persistence of data is assured by non-relational database Mongo.
+
+## How to run locally
+Before running the server locally, you should go under dev-setup folder and run:
+```shell
+docker compose up
+```
+This will run a container with a mongoDB instance to be used by the api.
+
+Once the database is up and running, if it's the first time running the project, you should install all npm dependencies:
+```shell
+npm i
+```
+
+Finally, it's time to run the server:
+```shell
+npm run start
+```
+
 ## Concepts and principles applied:
 
 ### Data Access Object(DAO) Design Pattern
