@@ -24,14 +24,14 @@ npm run start
 
 ## Concepts and principles applied:
 
-### Data Access Object(DAO) Design Pattern
+### Data Access Object (DAO) Design Pattern:
 DAO is a design pattern to abstract the way the business logic interacts with the database.
 Since the business logic is not tightly coupled with the database we are free to change the way the data is persisted (SQL, NoSQL) without any refactor
 on the business logic.
 
 WorkoutDao defines the CRUD operations and WorkoutDaoImpl will define how its implemented. In turn. WorkoutService depends only on WorkoutDao abstract class.
 
-### Inversion of control(IoC) using dependency injection:
+### Inversion of control (IoC) using dependency injection:
 We have different ways to manage our dependencies across our application. Inversion of control is a pattern where a framework manage the dependencies reducing the boilerplate code and decreasing the coupling between classes.
 Also, makes the application easier to test and maintain overall.
 
