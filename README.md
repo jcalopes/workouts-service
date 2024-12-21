@@ -3,7 +3,7 @@
 This service is responsible for managing workouts data.
 
 ## Tech Stack
-This API was built using express.js web framework for node.js. THe persistence of data is assured by non-relational database Mongo.
+This API was built using Express JS web framework for Node JS written in Typescript. The persistence of data is assured by non-relational database Mongo.
 
 ## How to run locally
 Before running the server locally, you should go under dev-setup folder and run:
