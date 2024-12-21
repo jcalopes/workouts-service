@@ -43,3 +43,9 @@ SOLID is an acronym standing for the following key aspects that all software sho
 - **Liskov Substitution Principle (LSP)**: We can replace any of our objects by another one as long as they implement the same interface.
 - **Interface Segregation Principle**: We created a WorkoutService that implements WorkoutServiceInterface, and we’re using that one to bind our implementation.
 - **Dependency Inversion Principle**: We’re relying on interfaces everywhere. The only place where we’re making use of our classes is on the inversify.config.ts file, where we are defining our bindings.
+
+### Continuous Integration
+Continuous Integration is a DevOps practice to automate new code integrations assuring some quality parameters are fullfiled. Leveraging GitHub Workflows, every commit triggers a static code analysis and unit testing. 
+
+### Continuous Deployment
+Once any integration reaches main branch, a new version is built and published on DockerHub registry.
