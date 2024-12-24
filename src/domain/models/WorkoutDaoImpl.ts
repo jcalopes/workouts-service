@@ -12,8 +12,8 @@ export class WorkoutDaoImpl extends WorkoutDao {
   private readonly workoutsCollection: mongoDB.Collection;
 
   public constructor(
-    @inject(TYPES.DatabaseManager) private databaseManager: Db,
-    @inject(TYPES.DefaultLogger) private logger: Logger,
+    @inject(TYPES.DatabaseManager) private readonly databaseManager: Db,
+    @inject(TYPES.DefaultLogger) private readonly logger: Logger,
   ) {
     super();
     this.workoutsCollection =

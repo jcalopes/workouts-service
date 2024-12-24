@@ -8,8 +8,8 @@ import { Logger } from 'winston';
 @injectable()
 export class WorkoutController {
   public constructor(
-    @inject(TYPES.WorkoutService) private workoutService: WorkoutService,
-    @inject(TYPES.DefaultLogger) private logger: Logger,
+    @inject(TYPES.WorkoutService) private readonly workoutService: WorkoutService,
+    @inject(TYPES.DefaultLogger) private readonly logger: Logger,
   ) {}
 
   async getWorkouts(req: Request, res: Response): Promise<Response> {

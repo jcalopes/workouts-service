@@ -39,7 +39,7 @@ export class WorkoutRouter {
 
   public constructor(
     @inject(TYPES.WorkoutController)
-    private workoutController: WorkoutController,
+    private readonly workoutController: WorkoutController,
   ) {
     this.router = express.Router();
   }
