@@ -6,3 +6,4 @@ build
 logs
 docs/swagger_output.json
 coverage
+ctrf

@@ -20,5 +20,9 @@
       "functions": 80,
       "lines": 80
     }
-  }
+  },
+  "reporters": [
+    "default",
+    ["jest-ctrf-json-reporter", {}]
+  ]
 }

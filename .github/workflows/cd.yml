@@ -18,3 +18,5 @@ jobs:
         run: npm run lint
       - name: Run Unit and Integration Tests
         run: npm test
+      - name: Publish Test Summary Results
+        run: npx github-actions-ctrf ctrf/ctrf-report.json
