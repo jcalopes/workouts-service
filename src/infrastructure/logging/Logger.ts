@@ -16,7 +16,7 @@ if (!fs.existsSync(dir)) {
   fs.mkdirSync(dir);
 }
 
-const logLevel = environment === 'development' ? 'debug' : 'warn';
+const logLevel = environment === 'development' ? 'debug' : 'info';
 
 const dailyRotateFile = new DailyRotateFile({
   level: logLevel,
