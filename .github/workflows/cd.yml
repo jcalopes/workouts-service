@@ -8,7 +8,11 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    permissions:
+      packages: write
+      contents: read
+      attestations: write
+      id-token: write
     steps:
       - uses: actions/checkout@v4
       - name: Use Node.js
@@ -17,19 +21,10 @@ jobs:
           node-version: '20.15.1'
       - name: Node Install Dependencies
         run: npm ci
-
-  push_to_registry:
-    name: Push Docker image to Docker Hub
-    runs-on: ubuntu-latest
-    permissions:
-      packages: write
-      contents: read
-      attestations: write
-      id-token: write
-    steps:
+      - name: Generate build artifact
+        run: npm run build
       - name: Check out the repo
         uses: actions/checkout@v4
-
       - name: Log in to Docker Hub
         uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
         with:
@@ -57,5 +52,5 @@ jobs:
         with:
           subject-name: docker.io/${{ vars.REGISTRY }}/${{ vars.IMAGE_NAME}}
           subject-digest: ${{ steps.push.outputs.digest }}
-          push-to-registry: false
+          push-to-registry: true
 
